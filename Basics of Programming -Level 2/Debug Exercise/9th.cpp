@@ -12,9 +12,9 @@ Pattern for N = 4
 int main(){
   int i,j,n;
     cin>>n;
-    for(i=1;i<n;i++){
+    for(i=0;i<n;i++){
         for(j=i;j<n;j++){
-            cout<<i;
+            cout<<n-i;
         }
         cout<<endl;
     }

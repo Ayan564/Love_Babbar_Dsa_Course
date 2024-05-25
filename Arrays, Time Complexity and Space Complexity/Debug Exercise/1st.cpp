@@ -2,11 +2,12 @@
 using namespace std;
 
 int main(){
-    int n, sum;
+    int n, sum=0;
     cin >> n;
     int input[n];
     for(int i=0;i<n;i++){
-        cin >> input[0];
+        // input the number of n times
+        cin >> input[i];
     }
      for(int i=0; i<n; i++){
          sum = sum + input[i];
