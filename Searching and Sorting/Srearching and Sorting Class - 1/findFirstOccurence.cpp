@@ -1,12 +1,14 @@
 #include<iostream>
 using namespace std;
 
-int binarySearch(int array[], int size, int target){
+void findFirstOccuence(int array[], int size, int target, int &ans){
     int start = 0, end = size - 1;
     while(start <= end){
         int mid = start + (end - start) / 2;
         if(array[mid] == target){
-            return 1;
+            // store and compute
+            ans = mid;
+            end = mid -1; // going to the left portion
         }
         else if(target < array[mid]){
             end = mid - 1;
@@ -15,7 +17,6 @@ int binarySearch(int array[], int size, int target){
             start = mid + 1;
         }
     }
-    return 0;
 }
 
 int main(){
@@ -39,13 +40,9 @@ int main(){
     cout << "Enter the target element: ";
     cin >> target;
     
-    int ans = binarySearch(array, size, target);
-    if(ans == 1){
-        cout << "Element is present." << endl;
-    }
-    else{
-        cout << "Element is not present." << endl;
-    }
+    int ans = -1;
+    findFirstOccuence(array, size, target,ans);
+    cout << "The first occurence of the target element is: "<< ans;
     
     return 0;
 }
