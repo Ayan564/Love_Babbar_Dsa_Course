@@ -16,7 +16,6 @@ void fancy12(int n){
 }
 
 void invertedFancy12(int n){
-    n--;
     for(int i=0; i<n; i++){
         for(int j=0;j<2*(n-i)-1;j++){
             if(!(j&1)){
@@ -32,6 +31,7 @@ void invertedFancy12(int n){
 
 void fullFancy12(int n){
     fancy12(n);
+    n--;
     invertedFancy12(n);
 }
 
