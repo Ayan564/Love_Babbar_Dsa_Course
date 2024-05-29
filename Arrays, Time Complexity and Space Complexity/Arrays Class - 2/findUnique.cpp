@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 int findUnique(int array[], int size){
@@ -9,10 +10,24 @@ int findUnique(int array[], int size){
     return ans;
 }
 
+int findUnique1(int array[], int size){
+    int ans = -1, i=0;
+    sort(array,array+size);
+    while(i<size){
+        if(i+1 < size && array[i] == array[i+1]){
+            i += 2;
+        }
+        else{
+            ans = array[i];
+            break;
+        }
+    }
+}
+
 int main(){
-    int array[5] = {1,1,3,3,5};
-    int size = 5;
-    int ans = findUnique(array,size);
+    int array[7] = {1,1,3,3,5,2,2};
+    int size = 7;
+    int ans = findUnique1(array,size);
     cout << "The unique element is: " << ans <<endl;
     return 0;
 }

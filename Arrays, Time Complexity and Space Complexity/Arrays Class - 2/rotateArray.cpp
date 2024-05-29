@@ -1,7 +1,8 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
-void reverseArray(int arr[], int size, int shift){
+void rotateArrayUsingTemp(int arr[], int size, int shift){
     int finalShift = shift % size;
     cout << "The effective steps of rotation are: "<<finalShift<<endl;
     if(finalShift == 0){
@@ -27,6 +28,14 @@ void reverseArray(int arr[], int size, int shift){
     }
 }
 
+void rotateArrayUsingReverse(int arr[], int size, int shift)
+{
+    int finalShift = shift % size;
+    reverse(arr,arr+size);
+    reverse(arr,arr+finalShift);
+    reverse(arr+finalShift,arr+size);
+}
+
 
 int main(){
     int array[6] = {11,22,33,44,55,66};
@@ -41,7 +50,7 @@ int main(){
 
     cout << "Enter the no of shift: ";
     cin >> shift;
-    reverseArray(array, size,shift);
+    rotateArrayUsingReverse(array, size,shift);
     // print the array
     cout << "The rotate array is: ";
     for(int i=0; i<size; i++){

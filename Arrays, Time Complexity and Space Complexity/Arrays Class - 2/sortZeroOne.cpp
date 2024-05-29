@@ -39,17 +39,17 @@ void sortZeroOne2(int arr[], int size){
 void sortZeroOne3(int arr[], int size){
       int left=0, right=size-1;
       while ( left < right ) {
-            while ( arr[left]  == 0  && left < right) {
-                  left ++;
+            if(arr[left] == 1 && arr[right] == 0){
+                  swap(arr[left++],arr[right--]);
             }
-            while ( arr[right] == 1 && left < right) {
-                  right--;
-            } 
-            if( left < right) {
-                  swap(arr[left], arr[right]);
-                  left++;
-                  right--;
-             }
+            else{
+                  if(arr[left] == 0){
+                        left++;
+                  }
+                 if(arr[right] == 1){
+                        right--;
+                  }
+            }
       }
       cout<<"The sorted array is: ";
       for(int i=0; i<size; i++){
