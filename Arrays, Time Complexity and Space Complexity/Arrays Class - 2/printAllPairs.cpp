@@ -27,7 +27,7 @@ void printPair2(int arr[], int size){
     cout<<"The no of pairs is: "<<count<<endl;
 }
 
-// print the upper triangle without the same vlue pairs
+// print the upper triangle without the same value pairs
 void printPair3(int arr[], int size){
     int count =0;
     for(int i=0; i<size; i++){
