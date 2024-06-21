@@ -44,9 +44,9 @@ double bsPrecision(int n){
         double s = 0;
         double e = n;
         double mid = s+(e-s)/2;
-        double ans = -1;
+        double ans = 0;
 
-        while((e-s) >= 0.0000000001){
+        while((e-s) > 0.0000000001){
             double prod = mid*mid;
             if(prod == n){
                 return mid;

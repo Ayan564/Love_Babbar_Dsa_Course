@@ -1,0 +1,5 @@
+single no - II
+single np - III
+row with max - I
+mejority element - I
+mejority element - II
