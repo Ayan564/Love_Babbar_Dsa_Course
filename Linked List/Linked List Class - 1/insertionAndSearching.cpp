@@ -46,7 +46,7 @@ Node* insertAtHead(int value, Node* &head, Node* &tail){
         // step 2: head ko new node pe lagao
         head = newNode;
 
-        // step 3: head ko new node pe lagao
+        // step 3: tail ko new node pe lagao
         tail = newNode;
     }
     // is LL is not empty
@@ -54,10 +54,10 @@ Node* insertAtHead(int value, Node* &head, Node* &tail){
         // step 1: Create a new node
         Node* newNode = new Node(value);
 
-        // step 2: head ko new node pe lagao
+        // step 2:
         newNode-> next = head;
 
-        // step 3: tail ko new node pe lagao
+        // step 3:
         head = newNode;
     }
     return head;
@@ -82,10 +82,10 @@ Node* insertAtTail(int value, Node* &head, Node* &tail){
         // step 1: Create a new node
         Node* newNode = new Node(value);
 
-        // step 2: head ko new node pe lagao
+        // step 2:
         tail -> next = newNode;
 
-        // step 3: tail ko new node pe lagao
+        // step 3:
         tail = newNode;
     }
     return head;
