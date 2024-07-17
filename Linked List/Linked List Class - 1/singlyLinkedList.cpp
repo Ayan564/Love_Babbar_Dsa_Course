@@ -49,7 +49,7 @@ Node* insertAtHead(int value, Node* &head, Node* &tail){
         // step 3: tail ko new node pe lagao
         tail = newNode;
     }
-    // is LL is not empty
+    // if LL is not empty
     else{
         // step 1: Create a new node
         Node* newNode = new Node(value);
@@ -77,7 +77,7 @@ Node* insertAtTail(int value, Node* &head, Node* &tail){
         // step 3: tail ko new node pe lagao
         tail = newNode;
     }
-    // is LL is not empty
+    // if LL is not empty
     else{
         // step 1: Create a new node
         Node* newNode = new Node(value);
