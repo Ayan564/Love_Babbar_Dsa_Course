@@ -8,7 +8,7 @@ int main(){
         if(number&1){
             count++;
         }
-        number = number >> 1;
+        number >>= 1;
     }
     cout<<"Total no of setbits = "<< count;
     return 0;
