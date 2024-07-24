@@ -6,10 +6,8 @@ void printArray(int arr[], int size, int index){
     if(index == size){
         return;
     }
-    // recursive relation
     cout<< arr[index] << " ";
     printArray(arr,size,index+1);
-    // processing
 }
 
 int main(){

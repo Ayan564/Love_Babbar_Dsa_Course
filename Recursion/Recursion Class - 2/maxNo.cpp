@@ -7,9 +7,9 @@ int maxInArray(int arr[], int size, int index, int &ans){
     if(index >= size){
         return -1;
     }
-    // processing
+    // 1 case hum solve karenge
     ans = max(ans,arr[index]);
-    // recursive relation
+    // baki recursion samhal lega
     maxInArray(arr,size,index+1,ans);
 }
 

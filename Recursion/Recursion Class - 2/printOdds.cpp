@@ -6,9 +6,11 @@ void printAllOdds(int arr[], int size, int index, vector<int>& ans){
     if(index == size){
         return;
     }
+    // 1 case hum solve karenge
     if(arr[index] & 1){
     ans.push_back(arr[index]);
     }
+    // baki recursion samhal lega
     printAllOdds(arr,size,index+1,ans);
 }
 

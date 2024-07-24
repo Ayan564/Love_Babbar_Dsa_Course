@@ -7,9 +7,11 @@ bool sortedOrNot(int arr[], int size, int index){
     }
     bool currAns = false;
     bool recursionAns = false;
+    // 1 case hum solve karenge
     if(arr[index] < arr[index+1]){
         currAns = true;
     }
+    // baki recursion samhal lega
     recursionAns = sortedOrNot(arr, size, index+1);
     return (currAns && recursionAns);
 }

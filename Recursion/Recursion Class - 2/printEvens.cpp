@@ -5,9 +5,11 @@ void printAllEvens(int arr[], int size, int index){
     if(index >= size){
         return;
     }
+    // 1 case hum solve karenge
     if(!(arr[index] & 1)){
         cout<<arr[index]<<" ";
     }
+    // baki recursion samhal lega
     printAllEvens(arr,size,index+1);
 }
 

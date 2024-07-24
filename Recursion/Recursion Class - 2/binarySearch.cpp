@@ -6,9 +6,11 @@ int binarySearch(int arr[], int size, int s, int e, int target){
     if(s > e){
         return -1;
     }
+    // 1 case hum solve karenge
     if(arr[mid] == target){
         return mid;
     }
+    // baki recursion samhal lega
     if(target > arr[mid]){
         return binarySearch(arr,size,mid+1,e,target);
     }

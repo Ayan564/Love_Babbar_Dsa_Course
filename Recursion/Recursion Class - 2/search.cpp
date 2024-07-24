@@ -2,23 +2,14 @@
 using namespace std;
 
 bool searchInArray(int arr[], int size, int index, int target){
-    // 2 base case
-
-    // not found
+    // base case
     if(index >= size){
         return false;
     }
-    //found
     if(arr[index] == target){
         return true;
     }
-
-
-    // recursive relation
     return searchInArray(arr,size,index+1,target);
-
-
-    // processing
 }
 
 int main(){

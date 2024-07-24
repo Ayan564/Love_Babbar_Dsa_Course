@@ -12,7 +12,6 @@ void printSubsequence(string str, int i, string output,vector<string>& ans){
     printSubsequence(str, i+1, output,ans);
     // include
     printSubsequence(str, i+1, output+ch,ans);
-
 }
 
 int main(){
