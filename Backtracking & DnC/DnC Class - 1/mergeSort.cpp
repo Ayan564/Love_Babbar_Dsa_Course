@@ -41,6 +41,9 @@ void merge(vector<int>& arr, int s, int e, int mid){
         rightIndex++;
         mainArrayIndex++;
     }
+
+    delete[] leftArr;
+    delete[] rightArr;
 }
 
 
@@ -57,7 +60,7 @@ void mergeSort(vector<int>& arr, int s, int e){
 }
 
 int main(){
-    vector<int> arr = {10,5,20,17,34,25};
+    vector<int> arr = {10,5,30,20,17,9,34,25};
     int s = 0, e = arr.size();
     mergeSort(arr,s,e);
     for(auto num: arr){
