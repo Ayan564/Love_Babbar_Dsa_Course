@@ -2,10 +2,10 @@
 
 using namespace std;
 
-class Shape
+class Shape // final
 {
 public:
-    virtual void draw() final
+    virtual void draw() // final
     {
         cout << "Generic drawing..." << endl;
     }
@@ -14,7 +14,7 @@ public:
 class Circle : public Shape
 {
 public:
-    void draw()
+    void draw() override
     {
         cout << "Circle drawing..." << endl;
     }
@@ -23,7 +23,7 @@ public:
 class Rectangle : public Shape
 {
 public:
-    void draw()
+    void draw() override
     {
         cout << "Rectangle drawing..." << endl;
     }
@@ -32,7 +32,7 @@ public:
 class Triangle : public Shape
 {
 public:
-    void draw()
+    void draw() override
     {
         cout << "Triangle drawing..." << endl;
     }
@@ -47,11 +47,9 @@ int main()
 {
     // Circle c;
     // Rectangle r;
-
+    // Triangle *t = new Triangle();
     // ShapeDrawing(&c);
     // ShapeDrawing(&r);
-
-    // Triangle *t = new Triangle();
     // ShapeDrawing(t);
 
     // virtual keyword
@@ -61,13 +59,12 @@ int main()
     // UPCASTING
     Shape *s3 = new Circle();
     s3->draw();
-
     Circle *c = new Circle();
     c->draw();
 
-    // DOWNCAsTing
+    // DOWNCASTING
     Shape *s2 = new Shape();
-    Circle *c2 = (Circle *)s2;
+    Circle *c2 = (Circle *)s2; 
     c2->draw();
     return 0;
 }

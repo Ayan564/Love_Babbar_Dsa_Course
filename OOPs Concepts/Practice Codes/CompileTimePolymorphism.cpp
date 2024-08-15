@@ -1,43 +1,46 @@
 #include <iostream>
-
 using namespace std;
 
-// class Add
-// {
-// public:
-//     // x, y, two int addition
-//     int sum(int x, int y)
-//     {
-//         cout << "Sum of 2 int" << endl;
-//         return x + y;
-//     }
+// function overloading
+class Add
+{
+public:
+    // x, y, two int addition
+    int sum(int x, int y)
+    {
+        cout << "Sum of 2 int" << endl;
+        return x + y;
+    }
 
-//     // x, y, z, three int add
-//     int sum(int x, int y, int z)
-//     {
-//         cout << "Sum of 3 int" << endl;
-//         return x + y + z;
-//     }
+    // x, y, z, three int add
+    int sum(int x, int y, int z)
+    {
+        cout << "Sum of 3 int" << endl;
+        return x + y + z;
+    }
 
-//     // double add
-//     double sum(double x, double y)
-//     {
-//         cout << "Sum of 2 doubles" << endl;
-//         return x + y;
-//     }
-// };
+    // double add
+    double sum(double x, double y)
+    {
+        cout << "Sum of 2 doubles" << endl;
+        return x + y;
+    }
+};
 
+// operator overloading
 class Complex
 {
 public:
     int real;
     int imag;
 
+    // default constructor
     Complex()
     {
         real = imag = -1;
     }
 
+    // parameterized constructor
     Complex(int r, int i) : real(r), imag(i){};
 
     // syntax
@@ -82,22 +85,20 @@ int main()
     A.print();
     Complex B(3, 3);
     B.print();
-
     bool a = A == B;
     cout << a << endl;
-    // Complex C = A + B;
-    // C.print();
 
-    // Complex D = A - B;
-    // D.print();
+    Complex C = A + B;
+    C.print();
+    Complex D = A - B;
+    D.print();
+
 
     // int x = 5, y = 5;
     // int z = 2;
-
     // Add add;
     // cout << add.sum(x, y) << endl;
     // cout << add.sum(x, y, z) << endl;
-
     // cout << add.sum(5.4, 2.3) << endl;
     return 0;
 }

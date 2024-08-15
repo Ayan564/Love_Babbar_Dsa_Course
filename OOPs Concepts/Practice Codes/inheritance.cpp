@@ -11,7 +11,7 @@ protected:
 public:
     Employee(const std::string &empName, int empId) : name(empName), employeeId(empId)
     {
-        // std::cout << __FUNCTION__ << std::endl;
+        std::cout << __FUNCTION__ << std::endl;
     }
 
     void display() const
@@ -28,9 +28,8 @@ private:
 
 public:
     Developer(const std::string &empName, int empId, const std::string &lang)
-        : Employee(empName, empId)
+        : Employee(empName, empId), programmingLanguage(lang)
     {
-        this->programmingLanguage = lang;
     }
 
     void show() const
