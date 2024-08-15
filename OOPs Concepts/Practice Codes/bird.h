@@ -12,11 +12,11 @@ public:
 class Sparrow : public Bird
 {
 public:
-    void eat()
+    void eat() override
     {
         std::cout << "Sparrow is eating\n";
     }
-    void fly()
+    void fly() override
     {
         std::cout << "Sparrow is flying \n";
     }
@@ -24,11 +24,11 @@ public:
 class Eagle : public Bird
 {
 public:
-    void eat()
+    void eat() override
     {
         std::cout << "Eagle is eating\n";
     }
-    void fly()
+    void fly() override
     {
         std::cout << "Eagle is flying \n";
     }
@@ -36,11 +36,11 @@ public:
 class Pigeion : public Bird
 {
 public:
-    void eat()
+    void eat() override
     {
         std::cout << "Pigeion is eating\n";
     }
-    void fly()
+    void fly() override
     {
         std::cout << "Pigeion is flying \n";
     }
