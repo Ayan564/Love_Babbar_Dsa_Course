@@ -8,8 +8,13 @@ class Vehicle
     DriveStrategy *strategy; //  pointer to the strategy
 
     public:
+
+    Vehicle() : strategy(nullptr) {}  // Constructor initializes with nullptr
+
+    // Constructor Injection: The strategy is provided during object creation
+    Vehicle(DriveStrategy* newStrategy) : strategy(newStrategy) {}
     
-    // constructor injection
+    // Setter Method (Not Constructor Injection)
     void setDriveStrategy(DriveStrategy* newStrategy) {
         strategy = newStrategy;
     }
