@@ -11,10 +11,8 @@ void insertAtBottom(stack<int>& s, int value){
     // 1 case hum solve karenge baki recursion samha lega
     int topElement = s.top();
     s.pop();
-
     // baki recursion
     insertAtBottom(s,value);
-
     // backtrack
     s.push(topElement);
 }
@@ -31,6 +29,7 @@ int main(){
     insertAtBottom(s,value);
 
     // traverse the stack
+    cout << "Print the stack:" << endl;
     while(!s.empty()){
         cout << s.top() << " ";
         s.pop();
