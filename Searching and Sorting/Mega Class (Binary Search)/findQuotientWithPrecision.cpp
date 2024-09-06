@@ -13,7 +13,6 @@ int getQuotient(int dividend, int divisor){
             return mid;
         }
         if((divisor*mid) <dividend){
-            // store and compute
             ans = mid;
             s = mid+1;
         }
@@ -25,12 +24,54 @@ int getQuotient(int dividend, int divisor){
     return ans;
 }
 
-int main(){
-    int dividend = 10;
-    int divisor = -2;
+double getQuotientWithPrecision(int dividend, int divisor, int precision) {
+    double quotient = getQuotient(abs(dividend), abs(divisor));
+    double step = 0.1;
 
-    // mission is to find quotient
-    int ans = getQuotient(abs(dividend),abs(divisor));
+    for (int i = 0; i < precision; ++i) {
+        while ((abs(divisor) * quotient) <= abs(dividend)) {
+            quotient += step;
+        }
+        quotient -= step;
+        step /= 10;
+    }
+    return quotient;
+}
+
+double getQuotientWithPrecisionBS(int dividend, int divisor) {
+    double s = 0;
+    double e = dividend;
+    double mid = s + (e - s) / 2.0;
+    double ans = 0;
+
+    while ((e - s) > 0.0000000001) {
+        double prod = divisor * mid;
+        if (prod == dividend) {
+            return mid;
+        }
+        if (prod < dividend) {
+            ans = mid;
+            s = mid;
+        } 
+        else {
+            e = mid;
+        }
+        mid = s + (e - s) / 2.0;
+    }
+    return ans;
+}
+
+int main(){
+    int dividend = -445;
+    int divisor = -3;
+    int precision = 5;
+
+    double ans = getQuotientWithPrecision(abs(dividend),abs(divisor), precision);
+    if((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)){
+        ans = 0-ans;
+    }
+    cout <<"Quotient is: "<<ans<<endl;
+    ans = getQuotientWithPrecision(abs(dividend),abs(divisor), precision);
     if((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)){
         ans = 0-ans;
     }
