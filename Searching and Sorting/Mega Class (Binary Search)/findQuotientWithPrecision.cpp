@@ -25,11 +25,11 @@ int getQuotient(int dividend, int divisor){
 }
 
 double getQuotientWithPrecision(int dividend, int divisor, int precision) {
-    double quotient = getQuotient(abs(dividend), abs(divisor));
+    double quotient = getQuotient(dividend, divisor);
     double step = 0.1;
 
     for (int i = 0; i < precision; ++i) {
-        while ((abs(divisor) * quotient) <= abs(dividend)) {
+        while ((divisor * quotient) <= dividend) {
             quotient += step;
         }
         quotient -= step;
