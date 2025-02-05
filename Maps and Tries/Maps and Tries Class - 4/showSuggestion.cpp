@@ -16,15 +16,15 @@ class TrieNode{
     }
 };
 
-void insertIntoTrie(TrieNode* root, string word){
+void insertIntoTrie(TrieNode* root, string &word, int i = 0){
     // base case
-    if(word.size() == 0){
+    if(i >= word.size()){
         root->isTerminal = true;
         return;
     }
 
     // 1 case hum solve karenge
-    char ch = word[0];
+    char ch = word[i];
     TrieNode* child;
     // present
     if(root->children.count(ch) > 0){
@@ -36,17 +36,17 @@ void insertIntoTrie(TrieNode* root, string word){
         root->children[ch] = child;
     }
     // baki recursion samhal lega
-    insertIntoTrie(child, word.substr(1));
+    insertIntoTrie(child, word, i+1);
 }
 
-bool searchInTrie(TrieNode* root, string word){
+bool searchInTrie(TrieNode* root, string &word, int i = 0){
     // base case
-    if(word.size() == 0){
+    if(i >= word.size()){
         return root->isTerminal;
     }
 
     // 1 case hum solve karenge
-    char ch = word[0];
+    char ch = word[i];
     TrieNode* child;
 
     // present
@@ -58,19 +58,19 @@ bool searchInTrie(TrieNode* root, string word){
         return false;
     }
     // baki recursion samhal lega
-    bool recursionResult = searchInTrie(child, word.substr(1));
+    bool recursionResult = searchInTrie(child, word, i+1);
     return recursionResult;
 }
 
-void removeWord(TrieNode* root, string word){
+void removeWord(TrieNode* root, string &word, int i = 0){
     // base case
-    if(word.size() == 0){
+    if(i >= word.size()){
         root->isTerminal = false;
         return;
     }
 
     // 1 case hum solve karenge
-    char ch = word[0];
+    char ch = word[i];
     TrieNode* child;
 
     // present
@@ -82,7 +82,7 @@ void removeWord(TrieNode* root, string word){
         return;
     }
     // baki recursion samhal lega
-    removeWord(child, word.substr(1));
+    removeWord(child, word, i+1);
 }
 
 void storeString(TrieNode* root, vector<string>& ans, string output){
@@ -142,10 +142,14 @@ vector<vector<string>> getSuggestions(TrieNode* root, string prefix){
 
 int main(){
     TrieNode* root = new TrieNode('-');
-    insertIntoTrie(root, "babbar");
-    insertIntoTrie(root, "baby");
-    insertIntoTrie(root, "baba");
-    insertIntoTrie(root, "bala");
+    string word1 = "babbar";
+    string word2 = "baby";
+    string word3 = "baba";
+    string word4 = "bala";
+    insertIntoTrie(root, word1);
+    insertIntoTrie(root, word2);
+    insertIntoTrie(root, word3);
+    insertIntoTrie(root, word4);
     
     // string prefix = "bal";
     // vector<string> ans;
