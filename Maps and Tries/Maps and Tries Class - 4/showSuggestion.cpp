@@ -123,6 +123,23 @@ void findWordWithPrefix(TrieNode* root, string prefix, vector<string>& ans){
     findWordWithPrefix(child, prefix.substr(1), ans);
 }
 
+vector<vector<string>> getSuggestions(TrieNode* root, string prefix){
+    string temp = "";
+    vector<vector<string>> ans;
+    for(int i=0; i<prefix.size(); i++){
+        vector<string> tempAns;
+        char currCh = prefix[i];
+        temp.push_back(currCh);
+        findWordWithPrefix(root, temp, tempAns);
+        // add prefix to tempAns array
+        for(int j=0; j<tempAns.size(); j++){
+            tempAns[j] = temp + tempAns[j];
+        }
+        ans.push_back(tempAns);
+    }
+    return ans;
+}
+
 int main(){
     TrieNode* root = new TrieNode('-');
     insertIntoTrie(root, "babbar");
@@ -130,14 +147,23 @@ int main(){
     insertIntoTrie(root, "baba");
     insertIntoTrie(root, "bala");
     
-    string prefix = "bab";
-    vector<string> ans;
-    findWordWithPrefix(root, prefix, ans);
-    for(auto i : ans){
-        cout<<i<<endl;
+    // string prefix = "bal";
+    // vector<string> ans;
+    // findWordWithPrefix(root, prefix, ans);
+    // for(int i=0; i<ans.size(); i++){
+    //     string str = prefix + ans[i];
+    //     ans[i] = str;
+    //     cout<<ans[i]<<endl;
+    // }
+
+    string prefix = "bal";
+    vector<vector<string>> ans = getSuggestions(root, prefix);
+    for(int i=0; i<ans.size(); i++){
+        for(int j=0; j<ans[i].size(); j++){
+            cout<<ans[i][j]<<" ";
+        }
+        cout<<endl;
     }
-
-
 
     return 0;
 }
