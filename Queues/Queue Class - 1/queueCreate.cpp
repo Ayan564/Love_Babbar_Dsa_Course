@@ -58,8 +58,13 @@ class Queue{
             }
         }
 
-        void getRear(){
-
+        int getRear(){
+            if(rear == -1){
+                cout << "Queue is empty" << endl;
+            }
+            else{
+                return arr[rear];
+            }
         }
 
         int getSize(){
@@ -80,6 +85,18 @@ class Queue{
 };
 
 int main(){
+    Queue q(5);
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
+    q.push(6);
+    cout << q.getSize() << endl;
+    q.pop();
+    cout << q.getSize() << endl;
+    cout << q.getFront() << endl;
+    cout << q.getRear() << endl;
 
 
     return 0;
