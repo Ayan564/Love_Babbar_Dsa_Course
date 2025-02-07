@@ -1,5 +1,13 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
+
+void permutationSTL(string str){
+    sort(str.begin(), str.end());
+    do{
+        cout << str << '\t';
+    }while(next_permutation(str.begin(), str.end()));
+}
 
 void printPermutation(string &str, int i){
     // base case
@@ -16,8 +24,9 @@ void printPermutation(string &str, int i){
 }
 
 int main(){
-    string str = "abc";
+    string str = "123";
     int i=0;
-    printPermutation(str,i);
+    // printPermutation(str,i);
+    permutationSTL(str);
     return 0;
 }
