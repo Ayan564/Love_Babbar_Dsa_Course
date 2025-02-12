@@ -22,7 +22,6 @@ void insertIntoTrie(TrieNode* root, string &word, int i = 0){
         root->isTerminal = true;
         return;
     }
-
     // 1 case hum solve karenge
     char ch = word[i];
     TrieNode* child;
@@ -39,52 +38,6 @@ void insertIntoTrie(TrieNode* root, string &word, int i = 0){
     insertIntoTrie(child, word, i+1);
 }
 
-bool searchInTrie(TrieNode* root, string &word, int i = 0){
-    // base case
-    if(i >= word.size()){
-        return root->isTerminal;
-    }
-
-    // 1 case hum solve karenge
-    char ch = word[i];
-    TrieNode* child;
-
-    // present
-    if(root->children.find(ch) != root->children.end()){
-        child = root->children[ch];
-    }
-    // absent
-    else{
-        return false;
-    }
-    // baki recursion samhal lega
-    bool recursionResult = searchInTrie(child, word, i+1);
-    return recursionResult;
-}
-
-void removeWord(TrieNode* root, string &word, int i = 0){
-    // base case
-    if(i >= word.size()){
-        root->isTerminal = false;
-        return;
-    }
-
-    // 1 case hum solve karenge
-    char ch = word[i];
-    TrieNode* child;
-
-    // present
-    if(root->children.find(ch) != root->children.end()){
-        child = root->children[ch];
-    }
-    // absent
-    else{
-        return;
-    }
-    // baki recursion samhal lega
-    removeWord(child, word, i+1);
-}
-
 void storeString(TrieNode* root, vector<string>& ans, string output){
     // base case
     if(root->isTerminal){
@@ -95,10 +48,10 @@ void storeString(TrieNode* root, vector<string>& ans, string output){
         char ch = i.first;
         TrieNode* child = i.second;
         output.push_back(ch);
-    // baki recursion samhal lega
-    storeString(child, ans, output);
-    // backtracking
-    output.pop_back();
+        // baki recursion samhal lega
+        storeString(child, ans, output);
+        // backtracking
+        output.pop_back();
     }
 }
 
@@ -151,7 +104,7 @@ int main(){
     insertIntoTrie(root, word3);
     insertIntoTrie(root, word4);
     
-    // string prefix = "bal";
+    // string prefix = "ba";
     // vector<string> ans;
     // findWordWithPrefix(root, prefix, ans);
     // for(int i=0; i<ans.size(); i++){
@@ -160,7 +113,7 @@ int main(){
     //     cout<<ans[i]<<endl;
     // }
 
-    string prefix = "bal";
+    string prefix = "balab";
     vector<vector<string>> ans = getSuggestions(root, prefix);
     for(int i=0; i<ans.size(); i++){
         for(int j=0; j<ans[i].size(); j++){
