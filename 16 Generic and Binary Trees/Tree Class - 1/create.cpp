@@ -123,41 +123,27 @@ void rightToLeftLevelOrderTraversal(Node* root){
 }
 
 void zigzagLevelOrderTraversal(Node* root) {
-    if (root == NULL) {
-        return;
-    }
+    if (root == NULL) return;
+    bool LtoRdir = true;
+    queue<Node*> q;
+    q.push(root);
 
-    deque<Node*> dq;
-    dq.push_back(root);
-    bool leftToRight = true;
-
-    while (!dq.empty()) {
-        int size = dq.size();
-        for (int i = 0; i < size; ++i) {
-            if (leftToRight) {
-                Node* current = dq.front();
-                dq.pop_front();
-                cout << current->data << " ";
-                if (current->left) {
-                    dq.push_back(current->left);
-                }
-                if (current->right) {
-                    dq.push_back(current->right);
-                }
-            } else {
-                Node* current = dq.back();
-                dq.pop_back();
-                cout << current->data << " ";
-                if (current->right) {
-                    dq.push_front(current->right);
-                }
-                if (current->left) {
-                    dq.push_front(current->left);
-                }
-            }
+    while (!q.empty()) {
+        int width = q.size();
+        vector<int> oneLevel(width); 
+        for (int i = 0; i < width; i++) {
+            Node* front = q.front(); q.pop();
+            int index = LtoRdir ? i : width - i - 1;
+            oneLevel[index] = front->data;
+            if (front->left) q.push(front->left);
+            if (front->right) q.push(front->right);
         }
-        leftToRight = !leftToRight;
+        // Print the current level
+        for (int val : oneLevel) {
+            cout << val << " ";
+        }
         cout << endl;
+        LtoRdir = !LtoRdir;
     }
 }
 
