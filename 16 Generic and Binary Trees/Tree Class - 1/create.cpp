@@ -51,9 +51,9 @@ void inOrederTraversal(Node* root){
         return;
     }
     // LNR
-    preOrederTraversal(root->left);
+    inOrederTraversal(root->left);
     cout << root->data << " ";
-    preOrederTraversal(root->right);
+    inOrederTraversal(root->right);
 }
 
 void postOrederTraversal(Node* root){
@@ -61,8 +61,8 @@ void postOrederTraversal(Node* root){
         return;
     }
     // LRN
-    preOrederTraversal(root->left);
-    preOrederTraversal(root->right);
+    postOrederTraversal(root->left);
+    postOrederTraversal(root->right);
     cout << root->data << " ";
 }
 
